@@ -1,0 +1,51 @@
+.popover-container {
+  display: inline-block;
+  position: relative;
+
+  &.active {
+    .popover-box {
+      display: block;
+    }
+  }
+}
+
+.popover-box {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 100px;
+  padding: 5px 0;
+  color: $secondaryFontColor;
+  background-color: $secondaryBg;
+  box-shadow: $secondaryBoxShodow;
+  text-align: left;
+  border-radius: 20px;
+  @include transition('transform');
+  @include prefix(transform-origin, 'top left');
+  @include prefix(transform, scale(0));
+
+  &.show-animation {
+    @include prefix(transform, scale(1));
+  }
+
+  &.right {
+    left: auto;
+    right: 0;
+    @include prefix(transform-origin, 'top right');
+  }
+}
+
+.popover-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: $primaryColor;
+  cursor: pointer;
+
+  icon {
+    height: 18px;
+    font-size: 18px;
+    margin-right: 5px;
+  }
+}

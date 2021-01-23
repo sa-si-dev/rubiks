@@ -1,0 +1,7 @@
+<icons></icons>
+
+<div [@routeAnimations]="prepareRoute(outlet)" (click)="onAppClick($event)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
+
+<div id="page-freeze"></div>

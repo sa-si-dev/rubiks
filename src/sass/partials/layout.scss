@@ -1,0 +1,26 @@
+app-root {
+  display: block;
+  height: 100vh;
+  max-width: $maxWidth;
+  margin: auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.top-bar, .bottom-bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px 15px;
+}
+
+.top-bar {
+  top: 0;
+  padding-bottom: 0;
+}
+
+.bottom-bar {
+  bottom: 0;
+  padding-top: 0;
+}

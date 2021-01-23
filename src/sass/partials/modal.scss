@@ -1,0 +1,48 @@
+.modal-wrapper {
+  display: none;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  &.active {
+    display: flex;
+  }
+}
+
+.modal-container {
+  position: relative;
+  width: 300px;
+  max-width: 80%;
+  margin: auto;
+  color: $secondaryFontColor;
+  background-color: $secondaryBg;
+  padding: 40px 20px 20px;
+  border-radius: 20px;
+  @include transition('transform, opacity');
+  @include prefix(transform, translate3d(0, -200%, 0));
+  opacity: 0;
+
+  &.show-animation {
+    @include prefix(transform, translate3d(0, 0, 0));
+    opacity: 1;
+  }
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 10px;
+
+  .button {
+    margin-left: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 13px;
+    text-transform: capitalize;
+  }
+}

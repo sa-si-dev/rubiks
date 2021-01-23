@@ -1,0 +1,22 @@
+<div class="page-container home-page-wrapper">
+  <div class="home-button-row"><button class="button" [routerLink]="['/levels']">Learn</button></div>
+  <div class="home-button-row"><button class="button" [routerLink]="['/play']">Play</button></div>
+
+  <div class="brand-name">Sa Si Dev</div>
+
+  <div class="popover-container settings-button-container">
+    <span class="icon-button settings-button secondary-color" (click)="togglePopover($event)"><icon name="settings"></icon></span>
+
+    <div class="popover-box right">
+      <div class="popover-menu-item" (click)="toggleTheme()">
+        <icon name="dark-theme"></icon>
+        {{themeMenuStatus}} Dark Mode
+      </div>
+
+      <div class="popover-menu-item" (click)="toggleSound()">
+        <icon name="{{soundMenuIcon}}"></icon>
+        {{soundMenuStatus}} Sound
+      </div>
+    </div>
+  </div>
+</div>

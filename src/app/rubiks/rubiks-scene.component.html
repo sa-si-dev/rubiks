@@ -1,0 +1,18 @@
+<div class="rubiks-scene-container" (panstart)="onPan($event)"  (panmove)="onPan($event)"  (panend)="onPan($event)"></div>
+
+<div *ngIf="mode === 'play'" class="bottom-bar row">
+  <span class="icon-button scramble-button" (click)="onScrambleClick()"><icon name="scramble"></icon></span>
+  <span id="play-timer-value"></span>
+  <span class="icon-button undo-button disabled" (click)="onUndoClick()"><icon name="undo"></icon></span>
+</div>
+
+<div *ngIf="mode === 'level'" class="bottom-bar row">
+  <span *ngIf="showReplay" class="icon-button scramble-button" (click)="_onReplay()"><icon name="scramble"></icon></span>
+  <span *ngIf="showUndo" class="icon-button undo-button disabled" (click)="onUndoClick()"><icon name="undo"></icon></span>
+  <span *ngIf="showRewind" class="icon-button rewind-button" (click)="_onRewind()"><icon name="rewind"></icon></span>
+  <span class="icon-button info-button" (click)="onInfoClick()"><icon name="info"></icon></span>
+</div>
+
+<audio id="rubiks-audio">
+  <source src="assets/sound.mp3">
+</audio>

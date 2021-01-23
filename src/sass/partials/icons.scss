@@ -1,0 +1,26 @@
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.icon-info {
+  font-size: 40px;
+}
+
+#icon-processing {
+  -webkit-animation: rotate 2s linear infinite;
+  animation: rotate 2s linear infinite;
+
+  circle {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    stroke: $primaryColor;
+    -webkit-animation: processing-icon-dash 1.5s ease-in-out infinite;
+    animation: processing-icon-dash 1.5s ease-in-out infinite;
+  }
+}

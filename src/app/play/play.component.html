@@ -1,0 +1,36 @@
+<div class="play-page-wrapper">
+  <rubiks-scene [mode]="mode" [backupKey]="backupKey" (onSolved)="onSolved()"></rubiks-scene>
+
+  <div class="hidden-button" (tap)="onAlgorithmsLinkClick($event)"></div>
+  <router-outlet></router-outlet>
+</div>
+
+<div id="play-page-modal" class="modal-wrapper">
+  <div class="modal-container">
+    <div class="alert-badge">{{solvedMessage}}</div>
+
+    <div class="modal-body">
+      <div class="duration-row row">{{currentTimeLabel}}: <span class="duration">{{currentTimeText}}</span></div>
+      <div *ngIf="bestTimeLabel" class="duration-row row">{{bestTimeLabel}}: <span class="duration">{{bestTimeText}}</span></div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="button more-padding modal-close-button">Close</button>
+    </div>
+  </div>
+</div>
+
+<div id="play-restore-modal" class="modal-wrapper">
+  <div class="modal-container">
+    <div class="alert-badge">Confirm</div>
+
+    <div class="modal-body">
+      Do you wanna start from where you left last time?
+    </div>
+
+    <div class="modal-footer">
+      <button class="button more-padding modal-close-button secondary" (click)="onResetClick()">No</button>
+      <button class="button more-padding modal-close-button">Yes</button>
+    </div>
+  </div>
+</div>

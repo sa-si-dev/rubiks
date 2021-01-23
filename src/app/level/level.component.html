@@ -1,0 +1,43 @@
+<div class="level-page-wrapper">
+  <rubiks-scene [mode]="mode" [level]="level" [showRewind]="showRewind" [showReplay]="showReplay" [showUndo]="showUndo" 
+    (showInstructions)="showInstructions()" (onRotate)="onRotate($event)" (onSolved)="onSolved()" (onReplay)="replay()" (onRewind)="rewind()">
+  </rubiks-scene>
+  
+  <div *ngIf="level === 1" class="level-one-info row">
+    <div class="result-container incorrect animate__animated" data-animation-class="animate__shakeX">
+      <icon name="clear"></icon>
+      <span>{{incorrectScore}}</span>
+    </div>
+
+    <div *ngIf="!isCompleted" class="current-notation">{{currentNotation}}</div>
+
+    <span *ngIf="isCompleted" class="icon-button small retry-button" (click)="onRetryClick()"><icon name="refresh"></icon></span>
+
+    <div class="result-container correct animate__animated" data-animation-class="animate__heartBeat">
+      <icon name="check"></icon>
+      <span>{{correctScore}}</span>
+    </div>
+  </div>
+  
+  <div [@routeAnimations]="prepareRoute(levelOutlet)">
+    <router-outlet #levelOutlet="outlet"></router-outlet>
+  </div>
+</div>
+
+<div id="level-page-modal" class="modal-wrapper">
+  <div class="modal-container">
+    <div class="alert-badge">{{modalTitle}}</div>
+
+    <div class="modal-body">
+      {{modalMessage}}
+    </div>
+
+    <div class="modal-footer">
+      <button class="button secondary modal-close-button">Close</button>
+      <button class="button" (click)="modalPrimayAction($event)">
+        <icon class="processing-icon" name="processing"></icon>
+        {{modalPrimayActionText}}
+      </button>
+    </div>
+  </div>
+</div>

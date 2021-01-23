@@ -1,0 +1,15 @@
+.rubiks-scene-container {
+  height: 100vh;
+}
+
+#play-timer-value {
+  display: inline-block;
+  padding-top: 10px;
+  line-height: 20px;
+  letter-spacing: 5px;
+  user-select: none;
+}
+
+#rubiks-audio {
+  display: none
+}

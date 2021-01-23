@@ -1,0 +1,11 @@
+<div class="page-container levels-page-wrapper">
+  <div class="levels-button-row" *ngFor="let level of levels; let i = index">
+    <button class="button" [class.disabled]="level.isLocked" (click)="goToLevel(level.id, level.isLocked)">
+      <icon *ngIf="level.isCompleted" name="done"></icon>
+      <icon *ngIf="level.isOpen" name="play"></icon>
+      <icon *ngIf="level.isLocked" name="lock"></icon>
+
+      Level {{level.id}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="page-container instructions-page-wrapper s-border-container" (window:resize)="onResize()">
+  <div class="s-border-top">
+    <rubiks-scene [mode]="mode" [level]="level" [disableRotation]="disableRotation" [noSound]="noSound"></rubiks-scene>
+
+    <div class="notations-container">
+      <div class="instruction-notations"></div>
+  
+      <div class="notation-nav">
+        <span class="icon-button small prev-button disabled" (click)="onPrevButtonClick($event)"><icon name="prev"></icon></span>
+        <span class="icon-button small refresh-button disabled" (click)="onRefreshButtonClick()"><icon name="refresh"></icon></span>
+        <span class="icon-button small next-button" (click)="onNextButtonClick($event)"><icon name="next"></icon></span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="s-border-bottom">
+    <div class="instructions-wrapper slider-wrapper" (scroll)="onScroll()">
+      <div class="instructions-boxes slider-container">
+        <div *ngFor="let boxData of instructionsData; let last = last" class="instructions-box slider-item more-shadow-container"
+          [attr.data-notations]="boxData.notations" [attr.data-display-notations]="boxData.displayNotations"
+          [attr.data-rotation]="boxData.rotation" [attr.data-hide-notations]="boxData.hideNotations"
+        >
+          <div class="alert-badge">{{boxData.title}}</div>
+          
+          <div class="list-items more-shadow-content">
+            <div *ngFor="let instruction of boxData.instructions" class="list-item" [innerHTML]="instruction"></div>
+
+            <div *ngIf="isFirstVisit && last" class="play-button-container">
+              <button class="button" (click)="onPlayClick()">Play level {{level}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

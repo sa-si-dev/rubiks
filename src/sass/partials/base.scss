@@ -1,0 +1,221 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --primary-color: #9C27B0;
+  --primary-color-dark: #7B1FA2;
+  --primary-color-text: #fff;
+  --primary-bg: #202029;
+  --primary-font-color: rgba(255, 255, 255, 0.7);
+  --primary-button-font-color: #aaa;
+  --primary-light-shadow: #2b2b36;
+  --primary-dark-shadow: #16161e;
+  --primary-box-shodow: -5px -5px 10px var(--primary-light-shadow), 5px 5px 10px var(--primary-dark-shadow);
+  --primary-box-shodow-in: inset -5px -5px 10px var(--primary-light-shadow), inset 5px 5px 10px var(--primary-dark-shadow);
+
+  --secondary-bg: var(--primary-bg);
+  --secondary-font-color: var(--primary-font-color);
+  --secondary-light-shadow: var(--primary-light-shadow);
+  --secondary-dark-shadow: var(--primary-dark-shadow);
+  --secondary-box-shodow: var(--primary-box-shodow);
+  --secondary-box-shodow-in: var(--primary-box-shodow-in);
+  
+  --shadow-start-color: rgba(32, 32, 41, 0);
+  --shadow-end-color: rgba(32, 32, 41, 1);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: $primaryBg;
+  color: $primaryFontColor;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+.page-container {
+  height: 100vh;
+  overflow: auto;
+}
+
+.row {
+  &::before, &::after {
+    display: table;
+    content: '';
+  }
+}
+
+.hide {
+  display: none !important;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $primaryColor;
+  background-color: $secondaryBg;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 16px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 40px;
+  box-shadow: $secondaryBoxShodow;
+  user-select: none;
+  cursor: pointer;
+
+  icon {
+    font-size: 14px;
+    line-height: 0;
+    margin-right: 8px;
+  }
+
+  .processing-icon {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.disabled {
+    box-shadow: $secondaryBoxShodowIn;
+    cursor: default;
+    opacity: 0.7;
+  }
+
+  &.secondary {
+    box-shadow: none;
+  }
+
+  &.more-padding {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &.processing {
+    .processing-icon {
+      display: inline-flex;
+    }
+  }
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  box-shadow: $primaryBoxShodow;
+  border-radius: 50%;
+  background-color: $primaryBg;
+  cursor: pointer;
+
+  &.secondary-color {
+    background-color: $secondaryBg;
+    box-shadow: $secondaryBoxShodow;
+    color: $primaryColor;
+  }
+
+  icon {
+    font-size: 25px;
+  }
+
+  &.disabled, &.processing {
+    box-shadow: $primaryBoxShodowIn;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.small {
+    margin: 0 10px;
+    width: 40px;
+    height: 40px;
+
+    icon {
+      font-size: 20px;
+    }
+  }
+}
+
+#page-freeze {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9;
+  display: none;
+
+  &.active {
+    display: flex;
+  }
+}
+
+/* scrollbar - start */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: $primaryBg; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: $secondaryBg;
+}
+/* scrollbar - end */
+
+/* s border layout - start */
+.s-border-container {
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: $sBorderRadius;
+    height: $sBorderRadius * 2;
+    margin-bottom: -$sBorderRadius;
+  }
+  
+  &::before {
+    left: 0;
+    background: $primaryBg;
+  }
+  
+  &::after {
+    right: 0;
+    background: $secondaryBg;
+  }
+}
+
+.s-border-top, .s-border-bottom {
+  position: relative;
+  overflow: auto;
+  z-index: 1; 
+}
+
+.s-border-top {
+  border-radius: 0 0 $sBorderRadius 0;
+  background: $primaryBg;
+}
+
+.s-border-bottom {
+  border-radius: $sBorderRadius 0 0 0;
+  background: $secondaryBg;
+}
+/* s border layout - end */

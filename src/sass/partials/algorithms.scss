@@ -1,0 +1,16 @@
+.algorithms-page-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $primaryBg;
+  padding: 20px;
+
+  .section-title {
+    text-align: center;
+  }
+
+  h2 {
+    margin-top: 50px;
+  }
+}

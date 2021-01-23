@@ -1,0 +1,10 @@
+@mixin transition($property) {
+  transition-property: #{$property};
+  transition-duration: $animationDuration;
+  transition-timing-function: $animationTiming;
+}
+
+@mixin prefix($property, $value) {
+  #{'-webkit-' + $property}: #{$value};
+  #{$property}: #{$value};
+}

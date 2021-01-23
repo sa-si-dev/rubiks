@@ -1,0 +1,211 @@
+.levels-page-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+  background-color: $secondaryBg;
+}
+
+.levels-button-row {
+  width: 100%;
+  margin-bottom: 15px;
+
+  .button {
+    width: 110px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.level-page-wrapper {
+  background-color: $primaryBg;
+  
+  .undo-button, .scramble-button {
+    float: left;
+  }
+
+  .info-button {
+    float: right;
+  }
+}
+
+.instructions-page-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: $primaryBg;
+
+  .s-border-top {
+    height: 50vh;
+  }
+  
+  .s-border-bottom {
+    height: 50vh;
+  }
+
+  &::before, &::after {
+    bottom: 50vh;
+  }
+
+  .rubiks-scene-container {
+    height: 100%;
+    -webkit-transform: translate3d(0, -20%, 0);
+    transform: translate3d(0, -20%, 0);
+  }
+
+  .notations-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  .play-button-container {
+    padding-top: 20px;
+    text-align: center;
+  }
+}
+
+.instructions-wrapper {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  overflow: auto;
+}
+
+.instructions-boxes {
+  height: 100%;
+
+  .more-shadow-container {
+    &::before {
+      border-radius: $instructionsBorderRadius $instructionsBorderRadius 0 0;
+    }
+    
+    &::after {
+      border-radius: 0 0 $instructionsBorderRadius $instructionsBorderRadius;
+    }
+  }
+}
+
+.instructions-box {
+  position: relative;
+  float: left;
+  height: calc(100% - #{$cardGutter * 2});
+  margin: $cardGutter ($cardGutter / 2) ;
+  color: $secondaryFontColor;
+  background-color: $secondaryBg;
+  border-radius: $instructionsBorderRadius;
+  box-shadow: $secondaryBoxShodowIn;
+
+  &.active {
+    box-shadow: $secondaryBoxShodow;
+  }
+
+  .list-items {
+    padding: 40px 20px 20px;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .list-item {
+    position: relative;
+    margin-bottom: 12px;
+    padding-left: 15px;
+
+    &::before {
+      content: '*';
+      position: absolute;
+      top: 3px;
+      left: 0;
+      font-size: 16px;
+      color: $primaryColor;
+    }
+  }
+
+  b {
+    font-weight: 500;
+  }
+
+  &:first-child {
+    margin-left: 40px;
+  }
+
+  &:last-child {
+    margin-right: 40px;
+  }
+}
+
+.instruction-notations {
+  font-size: 16px;
+  padding-bottom: 20px;
+
+  span {
+    display: inline-block;
+    margin: 0 6px;
+
+    &.active {
+      position: relative;
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5);
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid $primaryFontColor;
+      }
+    }
+  }
+}
+
+.notation-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+}
+
+.level-one-info {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0 30px;
+
+  .current-notation {
+    display: inline-block;
+    font-size: 30px;
+  }
+
+  .retry-button {
+    margin-top: -10px;
+  }
+
+  .result-container {
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+
+    icon {
+      font-size: 20px;
+      height: 20px;
+      margin-right: 4px;
+    }
+
+    &.incorrect {
+      float: left;
+      color: $errorColor;
+    }
+
+    &.correct {
+      float: right;
+      color: $successColor;
+    }
+  }
+}
