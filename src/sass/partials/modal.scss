@@ -44,5 +44,10 @@
     padding-right: 15px;
     font-size: 13px;
     text-transform: capitalize;
+
+    &.more-padding {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 }

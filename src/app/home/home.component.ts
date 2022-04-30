@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Utils } from '../shared/utils';
 import { ThemeService } from '../shared/theme.service';
 import { DatabaseService } from '../shared/database.service';
+import { I18nService } from '../shared/i18n.service';
 
 @Component({
   selector: 'home',
@@ -11,13 +12,17 @@ export class HomeComponent implements OnInit {
   themeMenuStatus: any;
   soundMenuStatus: any;
   soundMenuIcon: any;
+  i18n: any;
 
   constructor(
     private themeService: ThemeService,
-    private db: DatabaseService
+    private db: DatabaseService,
+    private i18nService: I18nService
   ) {}
 
   ngOnInit() {
+    this.i18n = this.i18nService.get();
+
     this.setThemeStatus();
     this.setSoundStatus();
   }

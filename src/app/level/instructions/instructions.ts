@@ -163,7 +163,7 @@ export const instructionsData = [
       instructions: [
         'If the piece is in the Upper-Left layer, apply the above algorithm (<b>State 2</b> algorithm without first notation). ',
         'It would move the piece to down layer',
-        'Then follow <b>State 1</b> instructions',
+        'Then follow <b>State 2</b> instructions',
       ]
     },
     {
