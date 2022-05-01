@@ -6,7 +6,7 @@ export const instructionsData = [
       instructions: [
         'In this level, you will learn the basic notations and terminologies',
         'A cube has 6 faces with 6 different colors',
-        '<b>P.S.</b> Scroll right/left to navigate between instructions'
+        '<b>PS:</b> Scroll right/left to navigate between instructions'
       ]
     },
     {
@@ -41,8 +41,11 @@ export const instructionsData = [
       instructions: [
         'If you see a notation ends with <b>i</b> (inverse), you should rotate the respective layer counterclockwise',
         '<b>Fi</b> - Front layer <b>90°</b> counterclockwise',
-        '<b>P.S.</b> If you see a notation ends with number <b>2</b>, it means, do the notation two times'
-      ]
+        'If you see a notation ends with number <b>2</b>, it means, do the notation two times'
+      ],
+      playInstructions: [
+        'Click <b>PLAY LEVEL 1</b> button and do all the rotations correctly to go to next level',
+      ],
     }
   ],
 
@@ -54,7 +57,8 @@ export const instructionsData = [
         'When you solve a cube, you should solve it layer by layer (upper layer then center layer and finally down layer)',
         'In this level, you will learn to solve the <b>edge pieces</b> of the <b>upper layer</b> as shown in the above cube',
         'When you solve a piece you should move the piece to its proper position and apply the respective algorithm to solve the piece',
-        'Here algorithm means, a combination of notations'
+        'Here algorithm means, a combination of notations',
+        '<b>PS:</b> You should always keep the white face on the top layer while applying the algorithm'
       ]
     },
     {
@@ -388,7 +392,7 @@ export const instructionsData = [
       rotation: [0.4, -0.4, 0],
       instructions: [
         'Once you solved one piece, it would look like you got messed up with other layers. Don\'t worry, they would go to their position once you solved all corners',
-        'Once solved one corner, rotate the upper layer to move another unsolved piece to the Upper-Front-Right corner and solve that piece',
+        'Once solved one corner, rotate the upper layer only (not whole cube vertically) to move another unsolved piece to the Upper-Front-Right corner and solve that piece',
         'Repeat this for all unsolved corners',
       ]
     },

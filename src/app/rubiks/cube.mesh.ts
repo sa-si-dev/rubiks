@@ -270,10 +270,7 @@ export class CubeMesh {
       }
     }, 80);
 
-    this.rotationsHistory = [];
-    this.resetTimer();
-    this.toggleUndoButton(false);
-    localStorage.removeItem(`${this.backupKey}-backup`);
+    this.resetPlayData();
   }
 
   resetCube({
@@ -471,6 +468,13 @@ export class CubeMesh {
     } else {
       this.resetCube();
     }
+  }
+
+  resetPlayData() {
+    this.rotationsHistory = [];
+    this.resetTimer();
+    this.toggleUndoButton(false);
+    localStorage.removeItem(`${this.backupKey}-backup`);
   }
 
   /* timer methods - start */

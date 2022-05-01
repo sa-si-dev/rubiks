@@ -52,6 +52,10 @@ export class RubiksSceneComponent implements OnInit, OnDestroy {
     this.rubiksSceneService.cubeMesh.resetCube(options);
   }
 
+  resetPlayData() {
+    this.rubiksSceneService.cubeMesh.resetPlayData();
+  }
+
   rotate(notation: string, soundOn: boolean = false) {
     this.rubiksSceneService.cubeMesh.rotate(notation, { soundOn: true });
   }

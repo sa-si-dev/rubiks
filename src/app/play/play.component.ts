@@ -31,8 +31,8 @@ export class PlayComponent implements AfterViewInit {
   }
 
   onResetClick() {
-    this.db.remove(`${this.backupKey}-backup`);
     this.rubiksScene.resetCube();
+    this.rubiksScene.resetPlayData();
   }
 
   onAlgorithmsLinkClick(e: any) {

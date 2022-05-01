@@ -25,9 +25,13 @@
           <div class="list-items more-shadow-content">
             <div *ngFor="let instruction of boxData.instructions" class="list-item" [innerHTML]="instruction"></div>
 
-            <div *ngIf="isFirstVisit && last" class="play-button-container">
-              <button class="button" (click)="onPlayClick()">Play level {{level}}</button>
-            </div>
+            <ng-container *ngIf="isFirstVisit && last">
+              <div *ngFor="let instruction of boxData.playInstructions" class="list-item" [innerHTML]="instruction"></div>
+  
+              <div class="play-button-container">
+                <button class="button" (click)="onPlayClick()">Play level {{level}}</button>
+              </div>
+            </ng-container>
           </div>
         </div>
       </div>
